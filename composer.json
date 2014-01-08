@@ -1,0 +1,29 @@
+{
+    "name": "unaspbr/iugu-php",
+    "description": "Biblioteca PHP para abstrair a API do Iugu.",
+    "homepage": "https://iugu.com",
+    "keywords": [
+        "iugu",
+        "pagamentos",
+        "api"
+    ],
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Mateus Felipe C. C. Pinto",
+            "homepage": "https://github.com/mateusfccp",
+	    "email": "mateusfccp@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.33",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*"
+    },
+    "autoload": {
+	"psr-4": {
+	    "unaspbr\\Iugu\\": "lib/"
+	}
+    }
+}
