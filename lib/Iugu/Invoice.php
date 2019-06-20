@@ -62,7 +62,6 @@ class Invoice extends APIResource
 
         return true;
     }
-<<<<<<< HEAD
 	
 	public function duplicate($options=Array()) {
 		if ($this->is_new()) return false;
@@ -78,10 +77,8 @@ class Invoice extends APIResource
 			return false;
 		}
 
-	return true;
-  }  
-	
-=======
+        return true;
+    }  
 
     public function capture()
     {
@@ -105,5 +102,4 @@ class Invoice extends APIResource
 
         return true;
     }
->>>>>>> 79a7541... Implementation of the capture invoice method
 }
