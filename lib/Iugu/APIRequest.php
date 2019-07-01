@@ -150,12 +150,16 @@ class APIRequestHasErrors extends \Exception {
     public $parameters;
 
     public function __construct($errors) {
-        $keys = array_keys($errors);
-        $keys_text = implode(', ', $keys);
-        $s = count($keys) > 1 ? 's' : '';
-        $ser = count($keys) > 1 ? 'são' : 'é';
+        if (is_array($keys)) {
+            $keys = array_keys($errors);
+            $keys_text = implode(', ', $keys);
+            $s = count($keys) > 1 ? 's' : '';
+            $ser = count($keys) > 1 ? 'são' : 'é';
         
-        parent::__construct("O{$s} parâmetro{$s} {$keys_text} passado{$s} na requisição ${ser} inválido{$s}!");
+            parent::__construct("O{$s} parâmetro{$s} {$keys_text} passado{$s} na requisição ${ser} inválido{$s}!");
+        } else {
+            parent::__construct("Erro na requisição: {$error}");
+        }
         
         $this->errors = $errors;
         $this->parameters = $keys;
