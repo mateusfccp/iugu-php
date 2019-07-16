@@ -150,7 +150,7 @@ class APIRequestHasErrors extends \Exception {
     public $parameters;
 
     public function __construct($errors) {
-        if (is_array($keys)) {
+        if (is_array($errors)) {
             $keys = array_keys($errors);
             $keys_text = implode(', ', $keys);
             $s = count($keys) > 1 ? 's' : '';
