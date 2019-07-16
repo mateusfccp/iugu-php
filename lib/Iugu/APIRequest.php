@@ -158,7 +158,7 @@ class APIRequestHasErrors extends \Exception {
         
             parent::__construct("O{$s} parâmetro{$s} {$keys_text} passado{$s} na requisição ${ser} inválido{$s}!");
         } else {
-            parent::__construct("Erro na requisição: {$error}");
+            parent::__construct("Erro na requisição: {$errors}");
         }
         
         $this->errors = $errors;
