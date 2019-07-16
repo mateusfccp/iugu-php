@@ -150,8 +150,13 @@ class APIRequestHasErrors extends \Exception {
     public $parameters;
 
     public function __construct($errors) {
+        // Cria a exceção com base no tipo de erro retornado pela API
         if (is_array($errors)) {
+            // Obtém os parâmetros incorretos a partir do objeto de erros
             $keys = array_keys($errors);
+            $this->parameters = $keys;
+
+            // Cria texto de erro e o insere na construção da classe pai
             $keys_text = implode(', ', $keys);
             $s = count($keys) > 1 ? 's' : '';
             $ser = count($keys) > 1 ? 'são' : 'é';
@@ -160,8 +165,7 @@ class APIRequestHasErrors extends \Exception {
         } else {
             parent::__construct("Erro na requisição: {$errors}");
         }
-        
+
         $this->errors = $errors;
-        $this->parameters = $keys;
     }
 }
