@@ -70,6 +70,10 @@ class APIRequest
 
         $iugu_last_api_response_code = $response_code;
         
+        if (property_exists($response, 'errors') && array_key_exists('payer.address.zip_code', $response->errors)) {
+            throw new \Exception('payer.address.zip_code;'.implode(';', $response->errors['payer.address.zip_code']), 422);
+        }
+
         if (property_exists($response, 'errors')) {
             throw new APIRequestHasErrors($response->errors);
         }
